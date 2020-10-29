@@ -72,6 +72,7 @@ by NCEPLIBS-external as described above.
 cd ${INSTALL_PREFIX}/src
 git clone -b ufs-v2.0.0 --recursive https://github.com/NOAA-EMC/NCEPLIBS
 cd NCEPLIBS
+export ESMFMKFILE=${INSTALL_PREFIX}/src/NCEPLIBS-external/esmf/lib/libO/Darwin.gfortran.64.mpich3.default/esmf.mk
 mkdir build && cd build
 cmake -DCMAKE_INSTALL_PREFIX=${INSTALL_PREFIX} -DCMAKE_PREFIX_PATH=${INSTALL_PREFIX} -DOPENMP=ON .. 2>&1 | tee log.cmake
 make -j8 2>&1 | tee log.make
