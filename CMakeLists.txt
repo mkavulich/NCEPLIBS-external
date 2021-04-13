@@ -72,6 +72,9 @@ if(BUILD_MPI)
   set(MPI_C_LIBRARY_VERSION_STRING "MPICH")
   set(MPI_C_VERSION_MAJOR "3")
   file(APPEND ${CMAKE_CONFIG_FILE} "set(MPI_ROOT \"${CMAKE_INSTALL_PREFIX}\")\n")
+  set(MPI_C_COMPILER ${CMAKE_INSTALL_PREFIX}/bin/mpicc)
+  set(MPI_CXX_COMPILER ${CMAKE_INSTALL_PREFIX}/bin/mpicxx)
+  set(MPI_Fortran_COMPILER ${CMAKE_INSTALL_PREFIX}/bin/mpifort)
 else()
   set(MPI_DETERMINE_LIBRARY_VERSION true)
   find_package(MPI REQUIRED)
@@ -176,6 +179,7 @@ if(BUILD_NETCDF)
     TEST_COMMAND cd ${PROJECT_BINARY_DIR}/netcdf-c && $(MAKE) check
     DEPENDS hdf5
     DEPENDS zlib
+    DEPENDS mpi
     )
 
   # configure NetCDF configure script with installation locations of NetCDF, HDF, install location, etc

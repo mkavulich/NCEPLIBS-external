@@ -53,7 +53,9 @@ For building NCEPLIBS-external, use `/full_path_to_where_you_installed_cmake/bin
 versions may work, in particular if close to the versions listed
 below. If the chosen compiler is not the default compiler on the
 system, set the environment variables `export CC=...`, `export
-CXX=...`, `export FC=...`, before invoking `cmake`.
+CXX=...`, `export FC=...`, before invoking `cmake`. You may also
+need to set `export SERIAL_CC=...`, `export SERIAL_CXX=...`, and
+`export SERIAL_FC=...` to the same values
 
 | Compiler vendor | Supported (tested) versions                                |
 |-----------------|------------------------------------------------------------|
